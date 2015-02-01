@@ -12,7 +12,7 @@ include<bearings.scad>
 
 $fn = 96;
 
-render_part(1);
+render_part(5);
 
 module render_part(part_to_render) {
 	if (part_to_render == 1) end_motor();
@@ -48,20 +48,20 @@ Secure plunger
 
 */
 
-d_nozzle = 0.75;
+d_nozzle = 0.75;				//AZ TODO
 
 motor = NEMA17;
 cc_guides = 50;
 
-d_lead_screw = d_M5_screw;
-d_lead_nut = d_M5_nut;
-h_lead_nut = h_M5_nut;
-od_antibacklash_spring = 7;
-l_antibacklash_spring = 10;
+d_lead_screw = d_M8_screw;  //AZ d_M5_screw;
+d_lead_nut = d_M8_nut;      //AZ d_M5_nut;
+h_lead_nut = h_M8_nut;		//AZ h_M5_nut;
+od_antibacklash_spring = 7;	//AZ TODO
+l_antibacklash_spring = 10;	//AZ TODO
 
 offset_guides = 3.5; // offset from centerline of motor shaft towards top (+y)
-d_guide_rod = 6.4; // 6mm guide rods
-guide_bearing = bearing_lm6uu;
+d_guide_rod = 8.4;				//AZ TDB "reason for .4?"   6.4; // 6mm guide rods
+guide_bearing = bearing_lm8uu;	//AZ  bearing_lm6uu;
 pad_guide_bearing_radius = 3;
 
 pad_guide_ends = 3; // backing material behind ends of guide rods
@@ -71,7 +71,7 @@ w_ends = motor[0];
 l_ends = cc_guides + d_guide_rod + 2 * pad_guide_radius;
 xy_aspect = l_ends / w_ends; // needed to scale rounded box
 t_motor_end = 25;
-idler = bearing_625;
+idler = bearing_608;			//AZ  bearing_625;
 t_idler_end = 20;
 
 t_carriage = guide_bearing[2] + 6;
@@ -84,10 +84,11 @@ d_clamp_screw_nut = d_M3_nut;
 
 
 // syringe pump:
-d_plunger = 32; // diameter of the plunger end
-d_syringe = 25; // diameter of the syringe body - sets size of syringe holder
-t_hook = 5; // thickness of the hook for securing syringe to actuator
-d_plunger_max = 32; // this sets the spacing for screws on the plunger retainer and carriage
+d_plunger = 34;					//AZ 32; // diameter of the plunger end
+d_insulation = 10;				//AZ new variable for increased diameter due to insulation
+d_syringe = 32+d_insulation;	//AZ 25; // diameter of the syringe body - sets size of syringe holder
+t_hook = 7;						//AZ  5; // thickness of the hook for securing syringe to actuator
+d_plunger_max = 34; 			//AZ 32; // this sets the spacing for screws on the plunger retainer and carriage
 d_plunger_retainer = d_plunger_max + 12;
 
 
