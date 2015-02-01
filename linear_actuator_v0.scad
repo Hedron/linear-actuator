@@ -51,7 +51,7 @@ Secure plunger
 d_nozzle = 0.75;				//AZ TODO
 
 motor = NEMA17;
-cc_guides = 50;
+cc_guides = 59.5;
 
 d_lead_screw = d_M8_screw;  //AZ d_M5_screw;
 d_lead_nut = d_M8_nut;      //AZ d_M5_nut;
